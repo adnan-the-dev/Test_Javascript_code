@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .container {
+      position: relative;
+    }
+    .box {
+      width: 400px;
+      height: 400px;
+      opacity: 0.9;
+      position: absolute;
+      color: white;
+    }
+    .red {
+      background: red;
+      z-index: 1;
+    }
+    .green {
+      top: 30px;
+      left: 30px;
+      background-color: green;
+      z-index: 2;
+    }
+    .blue {
+      top: 90px;
+      left: 60px;
+      background-color: blue;
+      z-index: 3;
+    }
+    .skyblue {
+      top: 9rem;
+      left: 90px;
+      background-color: skyblue;
+      z-index: 4;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="box red" id="red" onclick="chagneColorRed()">Red</div>
+      <div class="box green" id="green" onclick="chagneColorGreen()">Green</div>
+      <div class="box blue" id="blue" onclick="chagneColorBlue()">Blue</div>
+      <div class="box skyblue" id="skyblue" onclick="chagneColorSkyblue()">
+        Skyblue
+      </div>
+    </div>
+
+    <script>
+      const chagneColorRed = () => {
+        let e1 = document.getElementById('red')
+        let e2 = document.getElementById('green')
+        if(e1 == 'red'){
+        }else{
+            e2.style.backgroundColor = 'red'
+            e1.style.backgroundColor = 'red'
+        }
+      };
+
+      const chagneColorGreen = () => {
+        let e1 = document.getElementById('red')
+        let e2 = document.getElementById('green')
+        let e3 = document.getElementById('blue')
+        let e4 = document.getElementById('skyblue')
+        if(e2 == 'green'){
+        }else{
+            e1.style.backgroundColor = 'yellow'
+            e3.style.backgroundColor = 'red'
+            e4.style.backgroundColor = 'blck'
+        }
+      };
+
+      const chagneColorBlue = () => {
+        let e2 = document.getElementById('green')
+        let e3 = document.getElementById('blue')
+        let e4 = document.getElementById('skyblue')
+        if(e3 == 'blue'){
+        }else{
+            e2.style.backgroundColor = 'blue'
+            e4.style.backgroundColor = 'green'
+        }
+      };
+
+
+      const chagneColorSkyblue = () => {
+        let e1 = document.getElementById('red')
+        let e2 = document.getElementById('green')
+        let e3 = document.getElementById('blue')
+        let e4 = document.getElementById('skyblue')
+        if(e4 == 'skyblue'){
+        }else{
+            e1.style.backgroundColor = 'gray'
+            e2.style.backgroundColor = 'aqua'
+        }
+      };
+    </script>
+  </body>
+</html>

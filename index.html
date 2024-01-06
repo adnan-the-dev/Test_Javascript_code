@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <script>
+    var divlist = [];
+    const colorStates = [
+      [, , "red"],
+      ["yellow",,,,,,,"gold"],
+      ["blue",,, "green",,,"aqua"],
+      ["black", "orange",,,,"black", "gold"],
+      ["black", "orange","red",,,, "green", "gray"],
+      ["aqua", "black", "green", "blue", "gold",,,"magenta"],
+      ["gold", "wheat", "cyan", "teal", "gold","gray",,'orangered',],
+      [],
+     
+    ];
+
+    const changeColor = (id) => {
+      console.log(id);
+      const currentState = colorStates[id];
+      divlist.forEach(
+        (div, index) =>
+          (div.style.backgroundColor = currentState[index] ?? "white")
+      );
+    };
+    let stateCheck = setInterval(() => {
+      if (document.readyState === "complete") {
+        clearInterval(stateCheck);
+        // document ready
+        const main = document.getElementsByClassName("main")[0];
+
+        for (let i = 0; i < colorStates.length; i++) {
+          div = document.createElement("div");
+          div.className = "box";
+          div.addEventListener("click", () => changeColor(i));
+          div.style.top = i*10 +"px"
+          div.style.left = i*20 +"px"
+          main.appendChild(div);
+          divlist.push(div);
+        }
+      }
+    }, 100);
+  </script>
+  <body>
+    <div class="css-flame-text">LIME LIGHT</div>
+    <div class="main"></div>
+    <div>
+      <input type="text" oninput="val(this)" />
+      <input type="text" oninput="changeBorder(this.value)" />
+    </div>
+    <div id="para"></div>
+    <div>
+      <button onclick="createBox()">click me for box</button>
+      <button onclick="remBox()">click me for remove</button>
+    </div>
+    <div id="boxContainer"></div>
+    <script>
+      const val = (keyVal) => {
+        para.innerText = keyVal.value;
+      };
+      const changeBorder = (value) => {
+        const [color = "white", diameter = 100, borderRadius = 0] =
+          value.split(" ");
+        [...document.getElementsByClassName("box")].forEach((div) => {
+          console.log(div,'divdivdivdiv');
+          div.style.backgroundColor = color;
+        //   div1, div2, div3, div4;
+          div.style.height = diameter + "px";
+          div.style.width = diameter + "px";
+          div.style.borderRadius = borderRadius + "px";
+        });
+      };
+      // **********************create box********************
+
+      const createBox = ()=>{
+        const box = document.getElementById("boxContainer")
+        box.innerHTML += '<div id="box1"></div>'
+      }
+      const remBox = ()=>{
+        document.getElementById("box1").remove()
+      }
+    </script>
+  </body>
+</html>

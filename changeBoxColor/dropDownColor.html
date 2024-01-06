@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #box {
+      height: 300px;
+      width: 20%;
+      border: 2px solid red;
+      border-radius: 10px;
+      margin-left: 0px;
+      transition: all;
+      transition-duration: 5s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+     }
+     #box:hover{
+        margin-left: 80%;
+     }
+     .loader-rotate{
+        /* filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(87deg) brightness(119%) contrast(119%); */
+        height: 200px;
+        width: 200px;
+        animation: rotate 1.5s linear infinite;
+     }
+     @keyframes rotate {
+       
+        50%{
+            transform: rotate(180deg);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+       
+     }
+  
+  </style>
+  <body>
+    choose color:
+    <select name="colors" onchange="changeColor(event.target.value)" id="colors">
+      <option name="" value="pink">Pink</option>
+      <option name="" value="yellow">yellow</option>
+      <option name="" value="green">green</option>
+      <option name="" value="red">red</option>
+      <option name="" value="blue">blue</option>
+      <option name="" value="black">black</option>
+      <option name="" value="aqua">aqua</option>
+    </select>
+    <div id="box">
+        <img src="../loader.svg" class="loader-rotate" alt="">
+    </div>
+    <script>
+      const changeColor = (color) => {
+        document.getElementById("box").style.backgroundColor = color
+      };
+    </script>
+  </body>
+</html>
